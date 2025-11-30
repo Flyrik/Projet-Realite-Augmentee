@@ -218,12 +218,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 169223853}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.3286}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -2.2079997}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1303011902}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &169223858
 MonoBehaviour:
@@ -363,15 +363,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 485588, guid: eb58e8f2831a51f45a44a261e6710cdd, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.044093058
+      value: 0.03409306
       objectReference: {fileID: 0}
     - target: {fileID: 485588, guid: eb58e8f2831a51f45a44a261e6710cdd, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.044093058
+      value: 0.03409306
       objectReference: {fileID: 0}
     - target: {fileID: 485588, guid: eb58e8f2831a51f45a44a261e6710cdd, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.044093058
+      value: 0.03409306
       objectReference: {fileID: 0}
     - target: {fileID: 485588, guid: eb58e8f2831a51f45a44a261e6710cdd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -412,6 +412,10 @@ PrefabInstance:
     - target: {fileID: 485588, guid: eb58e8f2831a51f45a44a261e6710cdd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485588, guid: eb58e8f2831a51f45a44a261e6710cdd, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9586004, guid: eb58e8f2831a51f45a44a261e6710cdd, type: 3}
       propertyPath: m_Controller
@@ -915,6 +919,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DragonDetectionAnim
   dragonTarget: {fileID: 951109813}
+  chevalierTarget: {fileID: 1354428843}
   anim: {fileID: 2079956500}
   dragonAnimator: {fileID: 951109814}
 --- !u!114 &951109813
@@ -1081,7 +1086,7 @@ MonoBehaviour:
   animators:
   - {fileID: 915465643}
   - {fileID: 1303011903}
-  greetDistance: 0.5
+  greetDistance: 0.4
 --- !u!4 &1044020906
 Transform:
   m_ObjectHideFlags: 0
@@ -1498,7 +1503,11 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: a2d763d2f18bd794c89951e71b72d9aa, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: f4555df2d0c77aa45aab9b362a1a300c,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 169223857}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4555df2d0c77aa45aab9b362a1a300c, type: 3}
 --- !u!1001 &2054655711
@@ -1610,5 +1619,4 @@ SceneRoots:
   - {fileID: 1354428840}
   - {fileID: 951109811}
   - {fileID: 1442465355}
-  - {fileID: 169223857}
   - {fileID: 1044020906}
