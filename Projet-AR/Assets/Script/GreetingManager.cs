@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
-
+using System.Collections;
+using UnityEngine;
 public class GreetingManager : MonoBehaviour
 {
     public VuforiaObject target1;
@@ -12,25 +13,32 @@ public class GreetingManager : MonoBehaviour
 
     private bool greeted = false;
 
-    void Update()
+   void Update()
+{
+    if (target1.isDetected && target2.isDetected)
     {
-        if (target1.isDetected && target2.isDetected)
-        {
-            float dist = Vector3.Distance(target1.transform.position, target2.transform.position);
+        float dist = Vector3.Distance(target1.transform.position, target2.transform.position);
 
-            if (dist < greetDistance && !greeted)
-            {
-                // lance le Trigger sur tous les persos
-                foreach (Animator anim in animators)
-                {
-                    anim.SetTrigger("Greet");
-                }
-                greeted = true;
-            }
-        }
-        else
+        if (dist < greetDistance && !greeted)
         {
-            greeted = false; // reset si l’un disparaît
+            
+            foreach (Animator anim in animators)
+            {
+                anim.SetTrigger("Greet");
+            }
+
+           
+            greeted = true;
+            StartCoroutine(ResetGreet());
         }
+    }
+}
+
+    IEnumerator ResetGreet()
+    {
+        yield return new WaitForSeconds(4f);
+
+        
+        greeted = false;
     }
 }
