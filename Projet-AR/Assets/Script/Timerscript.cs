@@ -8,6 +8,7 @@ public class Timerscript : MonoBehaviour
     public float timeLimit = 20f;  // Durée en secondes
     private float timer;
     public static bool timerActive = false;
+    
 
     public static bool fintimer = false;
     public TextMeshProUGUI timerText;
@@ -34,7 +35,12 @@ public class Timerscript : MonoBehaviour
             timerActive = false;
                 fintimer = true;
         }
-    }
+            if (GreetingManager.tempsstop == true)
+            {
+                timerActive = false;
+            }
+        }
+
 }
 
     

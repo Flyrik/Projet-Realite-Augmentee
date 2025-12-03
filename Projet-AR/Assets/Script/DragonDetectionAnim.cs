@@ -11,6 +11,7 @@ public class DragonDetectionAnim : MonoBehaviour
     public VuforiaObject chevalierTarget;
 
     public VuforiaObject archerTarget;
+    public VuforiaObject AttackTarget;
     public Animator anim;
     private bool hasScreamed = false;
     private bool archerDead = false;
@@ -20,28 +21,49 @@ public class DragonDetectionAnim : MonoBehaviour
     public AudioSource feudragon;
     public Animator chevalierAnimator;
     private bool hasTakenOff = false;
+    public GameObject boutton;
+    public static bool buttonShown = false;
+
+
     void Start()
     {
+        buttonShown = false;
         hasTakenOff = false;
+        boutton.SetActive(false);
     }
     void Update()
     {
+        AnimatorStateInfo state = anim.GetCurrentAnimatorStateInfo(0);
 
         if (dragonTarget.isDetected && archerTarget.isDetected && !hasScreamed && chevalierTarget.isDetected)
         {
+            
             Timerscript.timerActive = true;
             dragonAnimator.volume = 1f;
             if (!dragonAnimator.isPlaying) // <- évite de relancer le son
                 dragonAnimator.Play();    // Joue le son du dragon
             anim.SetTrigger("Scream");  // Déclenche l'animation Scream
             hasScreamed = true;         // Empêche de relancer tant que le dragon reste visible
+            
+        }
+
+
+        if ((dragonTarget.isDetected && archerTarget.isDetected && chevalierTarget.isDetected && hasScreamed==true))
+        if (state.IsName("Idle02"))
+        {
+           boutton.SetActive(true);
+            buttonShown = true; // empêche de le réactiver en boucle
         }
         //else if (!dragonTarget.isDetected)
         //{
         //    hasScreamed = false;        // Reset si le dragon disparaît
+
+
         //}
-        AnimatorStateInfo state = anim.GetCurrentAnimatorStateInfo(0);
-        if (state.IsName("Fly Flame Attack"))
+
+        
+
+            if (state.IsName("Fly Flame Attack"))
         {
             // Action à faire quand l'anim est en cours
             
@@ -63,8 +85,18 @@ public class DragonDetectionAnim : MonoBehaviour
 
             StartCoroutine(Mort2());
         }
+        
 
-            }
+        if (Timerscript.fintimer == true)
+        {
+            boutton.SetActive(false);
+        }
+        if (GreetingManager.attack == true)
+        {
+            anim.SetTrigger("Die");
+        }
+
+    }
 
     IEnumerator Feustop()
     {

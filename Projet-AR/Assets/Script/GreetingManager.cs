@@ -8,12 +8,21 @@ public class GreetingManager : MonoBehaviour
     public VuforiaObject target2;
 
     public VuforiaObject dragonTarget;
-    
+    public VuforiaObject AttackTarget;
+    public static bool tempsstop = false;
 
     public List<Animator> animators; // liste de tous les persos
     public float greetDistance = 0.2f;
 
     private bool greeted = false;
+
+    public static bool attack = false;
+
+    void Start()
+    {
+        tempsstop = false;
+        attack = false;
+    }
 
     void Update()
     {
@@ -43,15 +52,37 @@ public class GreetingManager : MonoBehaviour
                 StartCoroutine(ResetGreet());
             }
         }
-    
-    
-}
 
+        if (target1.isDetected && target2.isDetected && dragonTarget.isDetected && AttackTarget.isDetected && DragonDetectionAnim.buttonShown==true)
+        {
+            Attack();
+            Debug.Log("GO");
+        }
+
+
+    }
+
+   
     IEnumerator ResetGreet()
     {
         yield return new WaitForSeconds(4f);
 
         
         greeted = false;
+    }
+
+    public void Attack()
+
+    {
+        attack = true;
+        Vector3 direction = dragonTarget.transform.position - animators[0].transform.position;
+        direction.y = 0; // Pour éviter qu’il se penche vers le haut / bas
+
+        // Rotation vers le dragon
+        animators[0].transform.rotation = Quaternion.LookRotation(direction);
+
+        // Lance l'attaque
+        animators[0].SetTrigger("Attack");
+        tempsstop = true;
     }
 }
