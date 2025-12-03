@@ -6,6 +6,8 @@ public class GreetingManager : MonoBehaviour
 {
     public VuforiaObject target1;
     public VuforiaObject target2;
+
+    public VuforiaObject dragonTarget;
     
 
     public List<Animator> animators; // liste de tous les persos
@@ -21,11 +23,20 @@ public class GreetingManager : MonoBehaviour
 
         if (dist < greetDistance && !greeted)
         {
-            
-            foreach (Animator anim in animators)
-            {
-                anim.SetTrigger("Greet");
+                if (dragonTarget.isDetected)
+                {
+
+                }
+                else
+                {
+                    foreach (Animator anim in animators)
+                {
+                    anim.SetTrigger("Greet");
+                }
+                
             }
+            
+            
 
            
             greeted = true;

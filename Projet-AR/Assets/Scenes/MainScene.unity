@@ -387,19 +387,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 485588, guid: eb58e8f2831a51f45a44a261e6710cdd, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 485588, guid: eb58e8f2831a51f45a44a261e6710cdd, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 485588, guid: eb58e8f2831a51f45a44a261e6710cdd, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 485588, guid: eb58e8f2831a51f45a44a261e6710cdd, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 485588, guid: eb58e8f2831a51f45a44a261e6710cdd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -407,7 +407,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 485588, guid: eb58e8f2831a51f45a44a261e6710cdd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 485588, guid: eb58e8f2831a51f45a44a261e6710cdd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -920,7 +920,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DragonDetectionAnim
   dragonTarget: {fileID: 951109813}
   chevalierTarget: {fileID: 1354428843}
+  archerTarget: {fileID: 1442465357}
   anim: {fileID: 2079956500}
+  archerAnimator: {fileID: 1303011903}
   dragonAnimator: {fileID: 951109814}
 --- !u!114 &951109813
 MonoBehaviour:
@@ -1083,6 +1085,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GreetingManager
   target1: {fileID: 1354428843}
   target2: {fileID: 1442465357}
+  dragonTarget: {fileID: 951109813}
   animators:
   - {fileID: 915465643}
   - {fileID: 1303011903}
