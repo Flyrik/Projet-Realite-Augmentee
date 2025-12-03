@@ -15,14 +15,14 @@ public class GreetingManager : MonoBehaviour
 
     private bool greeted = false;
 
-   void Update()
-{
-    if (target1.isDetected && target2.isDetected)
+    void Update()
     {
-        float dist = Vector3.Distance(target1.transform.position, target2.transform.position);
-
-        if (dist < greetDistance && !greeted)
+        if (target1.isDetected && target2.isDetected)
         {
+            float dist = Vector3.Distance(target1.transform.position, target2.transform.position);
+
+            if (dist < greetDistance && !greeted)
+            {
                 if (dragonTarget.isDetected)
                 {
 
@@ -30,19 +30,21 @@ public class GreetingManager : MonoBehaviour
                 else
                 {
                     foreach (Animator anim in animators)
-                {
-                    anim.SetTrigger("Greet");
-                }
-                
-            }
-            
-            
+                    {
+                        anim.SetTrigger("Greet");
+                    }
 
-           
-            greeted = true;
-            StartCoroutine(ResetGreet());
+                }
+
+
+
+
+                greeted = true;
+                StartCoroutine(ResetGreet());
+            }
         }
-    }
+    
+    
 }
 
     IEnumerator ResetGreet()

@@ -11,6 +11,8 @@ public class Aura : MonoBehaviour
     public ParticleSystem auraEffect;
     public bool auraActive = false;
 
+    public AudioSource buff;
+
     void Start()
     {
         
@@ -23,6 +25,7 @@ public class Aura : MonoBehaviour
          {
              if (auraActive == false)
             {
+                buff.Play();
                 auraEffect.Play();
                 auraActive = true;
             }

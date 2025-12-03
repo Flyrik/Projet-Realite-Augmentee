@@ -131,7 +131,6 @@ GameObject:
   - component: {fileID: 169223856}
   - component: {fileID: 169223855}
   - component: {fileID: 169223858}
-  - component: {fileID: 169223859}
   m_Layer: 0
   m_Name: AuraTarget
   m_TagString: Untagged
@@ -209,7 +208,7 @@ MonoBehaviour:
   mMotionHint: 1
   mTrackingOptimization: 0
   mTrackingOptimizationNeedsUpgrade: 0
-  mPreview: {fileID: 169223859}
+  mPreview: {fileID: 0}
 --- !u!4 &169223857
 Transform:
   m_ObjectHideFlags: 0
@@ -238,25 +237,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VuforiaObject
   isDetected: 0
---- !u!114 &169223859
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 169223853}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Vuforia.Unity.Engine.dll::Vuforia.ImageTargetPreview
-  mObserverBehaviour: {fileID: 169223856}
-  mHiddenRoot: {fileID: 0}
-  mTargetName: RageCard
-  mDatasetName: 
-  mCastedBehaviour: {fileID: 169223856}
-  mMeshFilter: {fileID: 0}
-  mMeshRenderer: {fileID: 0}
 --- !u!1001 &307308062
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -811,8 +791,6 @@ GameObject:
   - component: {fileID: 951109813}
   - component: {fileID: 951109812}
   - component: {fileID: 951109814}
-  - component: {fileID: 951109815}
-  - component: {fileID: 951109816}
   m_Layer: 0
   m_Name: DragonTarget
   m_TagString: Untagged
@@ -890,7 +868,7 @@ MonoBehaviour:
   mMotionHint: 1
   mTrackingOptimization: 0
   mTrackingOptimizationNeedsUpgrade: 0
-  mPreview: {fileID: 951109816}
+  mPreview: {fileID: 0}
 --- !u!4 &951109811
 Transform:
   m_ObjectHideFlags: 0
@@ -925,7 +903,6 @@ MonoBehaviour:
   anim: {fileID: 2079956500}
   archerAnimator: {fileID: 1303011903}
   dragonAnimator: {fileID: 951109814}
-  feudragon: {fileID: 951109815}
   chevalierAnimator: {fileID: 915465643}
 --- !u!114 &951109813
 MonoBehaviour:
@@ -1037,122 +1014,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!82 &951109815
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 951109808}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 711e7a1ae57260248acdea2e27f46254, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!114 &951109816
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 951109808}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Vuforia.Unity.Engine.dll::Vuforia.ImageTargetPreview
-  mObserverBehaviour: {fileID: 951109810}
-  mHiddenRoot: {fileID: 0}
-  mTargetName: Drogon
-  mDatasetName: 
-  mCastedBehaviour: {fileID: 951109810}
-  mMeshFilter: {fileID: 0}
-  mMeshRenderer: {fileID: 0}
 --- !u!1 &1044020904
 GameObject:
   m_ObjectHideFlags: 0
@@ -1461,7 +1322,6 @@ GameObject:
   - component: {fileID: 1354428839}
   - component: {fileID: 1354428838}
   - component: {fileID: 1354428843}
-  - component: {fileID: 1354428844}
   m_Layer: 0
   m_Name: ChevalierTarget
   m_TagString: Untagged
@@ -1539,7 +1399,7 @@ MonoBehaviour:
   mMotionHint: 1
   mTrackingOptimization: 0
   mTrackingOptimizationNeedsUpgrade: 0
-  mPreview: {fileID: 1354428844}
+  mPreview: {fileID: 0}
 --- !u!4 &1354428840
 Transform:
   m_ObjectHideFlags: 0
@@ -1569,25 +1429,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VuforiaObject
   isDetected: 0
---- !u!114 &1354428844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1354428836}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Vuforia.Unity.Engine.dll::Vuforia.ImageTargetPreview
-  mObserverBehaviour: {fileID: 1354428839}
-  mHiddenRoot: {fileID: 0}
-  mTargetName: Grogu (1)
-  mDatasetName: Vuforia/VuforiaMars_Images.xml
-  mCastedBehaviour: {fileID: 1354428839}
-  mMeshFilter: {fileID: 0}
-  mMeshRenderer: {fileID: 0}
 --- !u!1 &1442465352
 GameObject:
   m_ObjectHideFlags: 0
@@ -1600,7 +1441,6 @@ GameObject:
   - component: {fileID: 1442465354}
   - component: {fileID: 1442465353}
   - component: {fileID: 1442465357}
-  - component: {fileID: 1442465358}
   m_Layer: 0
   m_Name: ArcherTarget
   m_TagString: Untagged
@@ -1678,7 +1518,7 @@ MonoBehaviour:
   mMotionHint: 1
   mTrackingOptimization: 0
   mTrackingOptimizationNeedsUpgrade: 0
-  mPreview: {fileID: 1442465358}
+  mPreview: {fileID: 0}
 --- !u!4 &1442465355
 Transform:
   m_ObjectHideFlags: 0
@@ -1708,25 +1548,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VuforiaObject
   isDetected: 0
---- !u!114 &1442465358
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1442465352}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Vuforia.Unity.Engine.dll::Vuforia.ImageTargetPreview
-  mObserverBehaviour: {fileID: 1442465354}
-  mHiddenRoot: {fileID: 0}
-  mTargetName: Jon_Snow_profile
-  mDatasetName: 
-  mCastedBehaviour: {fileID: 1442465354}
-  mMeshFilter: {fileID: 0}
-  mMeshRenderer: {fileID: 0}
 --- !u!1 &1478215207
 GameObject:
   m_ObjectHideFlags: 0
