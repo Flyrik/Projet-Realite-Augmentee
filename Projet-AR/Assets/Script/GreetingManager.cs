@@ -1,16 +1,28 @@
 using UnityEngine;
 using System.Collections.Generic;
-
+using System.Collections;
+using UnityEngine;
 public class GreetingManager : MonoBehaviour
 {
     public VuforiaObject target1;
     public VuforiaObject target2;
-    
+
+    public VuforiaObject dragonTarget;
+    public VuforiaObject AttackTarget;
+    public static bool tempsstop = false;
 
     public List<Animator> animators; // liste de tous les persos
     public float greetDistance = 0.2f;
 
     private bool greeted = false;
+
+    public static bool attack = false;
+
+    void Start()
+    {
+        tempsstop = false;
+        attack = false;
+    }
 
     void Update()
     {
@@ -20,17 +32,57 @@ public class GreetingManager : MonoBehaviour
 
             if (dist < greetDistance && !greeted)
             {
-                // lance le Trigger sur tous les persos
-                foreach (Animator anim in animators)
+                if (dragonTarget.isDetected)
                 {
-                    anim.SetTrigger("Greet");
+
                 }
+                else
+                {
+                    foreach (Animator anim in animators)
+                    {
+                        anim.SetTrigger("Greet");
+                    }
+
+                }
+
+
+
+
                 greeted = true;
+                StartCoroutine(ResetGreet());
             }
         }
-        else
+
+        if (target1.isDetected && target2.isDetected && dragonTarget.isDetected && AttackTarget.isDetected && DragonDetectionAnim.buttonShown==true)
         {
-            greeted = false; // reset si l’un disparaît
+            Attack();
+            Debug.Log("GO");
         }
+
+
+    }
+
+   
+    IEnumerator ResetGreet()
+    {
+        yield return new WaitForSeconds(4f);
+
+        
+        greeted = false;
+    }
+
+    public void Attack()
+
+    {
+        attack = true;
+        Vector3 direction = dragonTarget.transform.position - animators[0].transform.position;
+        direction.y = 0; 
+
+        // Rotation vers le dragon
+        animators[0].transform.rotation = Quaternion.LookRotation(direction);
+
+        // Lance l'attaque
+        animators[0].SetTrigger("Attack");
+        tempsstop = true;
     }
 }
