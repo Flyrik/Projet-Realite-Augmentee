@@ -76,7 +76,7 @@ public class GreetingManager : MonoBehaviour
     {
         attack = true;
         Vector3 direction = dragonTarget.transform.position - animators[0].transform.position;
-        direction.y = 0; // Pour éviter qu’il se penche vers le haut / bas
+        direction.y = 0; 
 
         // Rotation vers le dragon
         animators[0].transform.rotation = Quaternion.LookRotation(direction);

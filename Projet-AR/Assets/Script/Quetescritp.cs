@@ -9,18 +9,29 @@ public class Quetescritp : MonoBehaviour
     public VuforiaObject chevalier;
     public VuforiaObject archer;
     public VuforiaObject Rage;
+
+    public VuforiaObject dragon;
     public TextMeshProUGUI quetes1grogu;
     public AudioSource recompense;
 
     public TextMeshProUGUI quete2Text;
 
-     private bool quete1Done = false;
+    public TextMeshProUGUI quete3Text;
+    public TextMeshProUGUI quete4Text;
+    
+
+    private bool quete1Done = false;
     private bool quete2Done = false;
 
     private bool quete3Done = false;
 
+    private bool quete4Done = false;
+
     public GameObject QueteOBJ1;
     public GameObject QueteOBJ2;
+    public GameObject QueteOBJ3;
+    public GameObject QueteOBJ4;
+    public GameObject QueteOBJ5;
 
 
     void Start()
@@ -57,27 +68,92 @@ public class Quetescritp : MonoBehaviour
         }
          if (quete1Done && !quete2Done)  // La quête 2 ne commence que si la 1 est faite
         {
-            if (archer.isDetected & chevalier.isDetected)
+            if (archer.isDetected && chevalier.isDetected)
             {
                 quete2Done = true;
                 quete2Text.text = "Afficher";
                 quete2Text.color = Color.green;
                 PointManager.instance.AddScore(30);
-
+                StartCoroutine(Attendre2());
+                recompense.Play();
+                return;
             }
             else
             {
                 quete2Text.text = "Non Afficher";
                 quete2Text.color = Color.red;
             }
+
+        }
+        if (quete1Done && quete2Done && !quete3Done)
+        {
+            if (Rage.isDetected && chevalier.isDetected)
+            {
+                quete3Done = true;
+                quete3Text.text = "Afficher";
+                quete3Text.color = Color.green;
+                PointManager.instance.AddScore(10);
+                StartCoroutine(Attendre3());
+                //recompense.Play();
+                return;
+            }
+            else
+            {
+                quete3Text.text = "Non Afficher";
+                quete3Text.color = Color.red;
+            }
+
+        }
+        if (quete1Done && quete2Done && quete3Done && !quete4Done)
+        {
+            if (dragon.isDetected && archer.isDetected && chevalier.isDetected)
+            {
+                quete4Done = true;
+                quete4Text.text = "Afficher";
+                quete4Text.color = Color.green;
+                PointManager.instance.AddScore(50);
+                StartCoroutine(Attendre4());
+                //recompense.Play();
+                return;
+            }
+            else
+            {
+                quete4Text.text = "Non Afficher";
+                quete4Text.color = Color.red;
+            }
+
+        }
+        if (quete1Done && quete2Done && quete3Done && quete4Done && DragonDetectionAnim.buttonShown==true)
+        {
+            
         }
     }
     IEnumerator Attendre()
 {
     yield return new WaitForSeconds(2);
     QueteOBJ1.SetActive(false);
-                QueteOBJ2.SetActive(true);
+            QueteOBJ2.SetActive(true);
 }
 
+IEnumerator Attendre2()
+{
+    yield return new WaitForSeconds(2);
+    QueteOBJ2.SetActive(false);
+            QueteOBJ3.SetActive(true);
+}
+
+IEnumerator Attendre3()
+{
+    yield return new WaitForSeconds(2);
+    QueteOBJ3.SetActive(false);
+            QueteOBJ4.SetActive(true);
+}
+
+IEnumerator Attendre4()
+{
+    yield return new WaitForSeconds(14);
+    QueteOBJ4.SetActive(false);
+        QueteOBJ5.SetActive(true);
+}
 
 }

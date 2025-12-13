@@ -23,6 +23,7 @@ public class DragonDetectionAnim : MonoBehaviour
     private bool hasTakenOff = false;
     public GameObject boutton;
     public static bool buttonShown = false;
+    public GameObject Fin;
 
 
     void Start()
@@ -30,6 +31,7 @@ public class DragonDetectionAnim : MonoBehaviour
         buttonShown = false;
         hasTakenOff = false;
         boutton.SetActive(false);
+        Fin.SetActive(false);
     }
     void Update()
     {
@@ -38,9 +40,9 @@ public class DragonDetectionAnim : MonoBehaviour
         if (dragonTarget.isDetected && archerTarget.isDetected && !hasScreamed && chevalierTarget.isDetected)
         {
             
-            Timerscript.timerActive = true;
+           
             dragonAnimator.volume = 1f;
-            if (!dragonAnimator.isPlaying) // <- évite de relancer le son
+            if (!dragonAnimator.isPlaying) //  évite de relancer le son
                 dragonAnimator.Play();    // Joue le son du dragon
             anim.SetTrigger("Scream");  // Déclenche l'animation Scream
             hasScreamed = true;         // Empêche de relancer tant que le dragon reste visible
@@ -51,6 +53,7 @@ public class DragonDetectionAnim : MonoBehaviour
         if ((dragonTarget.isDetected && archerTarget.isDetected && chevalierTarget.isDetected && hasScreamed==true))
         if (state.IsName("Idle02"))
         {
+             Timerscript.timerActive = true;
            boutton.SetActive(true);
             buttonShown = true; // empêche de le réactiver en boucle
         }
@@ -76,6 +79,7 @@ public class DragonDetectionAnim : MonoBehaviour
         {
             anim.SetTrigger("Feu2");
             hasTakenOff = true; // empêche de relancer chaque frame
+            StartCoroutine(FIN());
         }
 
 
@@ -96,6 +100,13 @@ public class DragonDetectionAnim : MonoBehaviour
             anim.SetTrigger("Die");
         }
 
+    }
+
+    IEnumerator FIN()
+    {
+        yield return new WaitForSeconds(8.0f);
+        Fin.SetActive(true);
+        
     }
 
     IEnumerator Feustop()
