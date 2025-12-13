@@ -1,3 +1,4 @@
+using UnityEngine.VFX;
 using UnityEngine;
 using Vuforia;
 using System.Collections;
@@ -25,7 +26,7 @@ public class DragonDetectionAnim : MonoBehaviour
     public static bool buttonShown = false;
     public GameObject Fin;
     private bool damageTaken = false;
-
+    public GameObject myVFX;
 
     void Start()
     {
@@ -34,6 +35,7 @@ public class DragonDetectionAnim : MonoBehaviour
         boutton.SetActive(false);
         Fin.SetActive(false);
         damageTaken = false;
+        myVFX.SetActive(false);
     }
     void Update()
     {
@@ -55,6 +57,7 @@ public class DragonDetectionAnim : MonoBehaviour
         if ((dragonTarget.isDetected && archerTarget.isDetected && chevalierTarget.isDetected && hasScreamed==true))
         if (state.IsName("Idle02"))
         {
+
              Timerscript.timerActive = true;
            boutton.SetActive(true);
             buttonShown = true; // empêche de le réactiver en boucle
@@ -74,6 +77,8 @@ public class DragonDetectionAnim : MonoBehaviour
             HealthManager.instance.TakeDamage(50f);
              HealthManager.instance.TakeDamage2(50f);
              damageTaken = true; 
+            myVFX.SetActive(true);
+            StartCoroutine(FeuStopEffet());
             StartCoroutine(Feustop());
             StartCoroutine(Mort());
             
@@ -92,6 +97,8 @@ public class DragonDetectionAnim : MonoBehaviour
             StartCoroutine(Feustop());
             HealthManager.instance.TakeDamage(50f);
             StartCoroutine(Mort2());
+            StartCoroutine(FeuStopEffet());
+             myVFX.SetActive(true);
         }
         
 
@@ -113,6 +120,11 @@ public class DragonDetectionAnim : MonoBehaviour
         
     }
 
+    IEnumerator FeuStopEffet()
+    {
+        yield return new WaitForSeconds(2.5f);
+        myVFX.SetActive(false);
+    }
     IEnumerator Feustop()
     {
         if (!feudragon.isPlaying)
