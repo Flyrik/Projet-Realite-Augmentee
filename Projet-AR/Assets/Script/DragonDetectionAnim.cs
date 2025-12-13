@@ -24,6 +24,7 @@ public class DragonDetectionAnim : MonoBehaviour
     public GameObject boutton;
     public static bool buttonShown = false;
     public GameObject Fin;
+    private bool damageTaken = false;
 
 
     void Start()
@@ -32,6 +33,7 @@ public class DragonDetectionAnim : MonoBehaviour
         hasTakenOff = false;
         boutton.SetActive(false);
         Fin.SetActive(false);
+        damageTaken = false;
     }
     void Update()
     {
@@ -66,10 +68,12 @@ public class DragonDetectionAnim : MonoBehaviour
 
         
 
-            if (state.IsName("Fly Flame Attack"))
+            if (state.IsName("Fly Flame Attack")&& !damageTaken)
         {
             // Action à faire quand l'anim est en cours
-            
+            HealthManager.instance.TakeDamage(50f);
+             HealthManager.instance.TakeDamage2(50f);
+             damageTaken = true; 
             StartCoroutine(Feustop());
             StartCoroutine(Mort());
             
@@ -86,7 +90,7 @@ public class DragonDetectionAnim : MonoBehaviour
         if (state.IsName("Fly Flame Attack 0"))
         {
             StartCoroutine(Feustop());
-
+            HealthManager.instance.TakeDamage(50f);
             StartCoroutine(Mort2());
         }
         

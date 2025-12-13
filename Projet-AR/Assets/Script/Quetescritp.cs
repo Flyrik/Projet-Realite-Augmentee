@@ -76,6 +76,7 @@ public class Quetescritp : MonoBehaviour
                 PointManager.instance.AddScore(30);
                 StartCoroutine(Attendre2());
                 recompense.Play();
+                
                 return;
             }
             else

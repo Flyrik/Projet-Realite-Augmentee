@@ -27,13 +27,15 @@ public class Timerscript : MonoBehaviour
     if (timerActive)
     {
         
-         timerText.text = "Timer : " + timer.ToString("F1");
+        timerText.text = "Timer : " + timer.ToString("F1");
         timer -= Time.deltaTime;  // décompte en secondes
 
         if (timer <= 0f)
         {
+            timerText.text = "Timer : " + "0.0";
             timerActive = false;
                 fintimer = true;
+            
         }
             if (GreetingManager.tempsstop == true)
             {
