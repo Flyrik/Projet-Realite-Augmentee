@@ -11,6 +11,7 @@ public class Quetescritp : MonoBehaviour
     public VuforiaObject Rage;
 
     public VuforiaObject dragon;
+    public VuforiaObject AttackTarget;
     public TextMeshProUGUI quetes1grogu;
     public AudioSource recompense;
 
@@ -18,6 +19,7 @@ public class Quetescritp : MonoBehaviour
 
     public TextMeshProUGUI quete3Text;
     public TextMeshProUGUI quete4Text;
+    public TextMeshProUGUI quete5Text;
     
 
     private bool quete1Done = false;
@@ -126,7 +128,19 @@ public class Quetescritp : MonoBehaviour
         }
         if (quete1Done && quete2Done && quete3Done && quete4Done && DragonDetectionAnim.buttonShown==true)
         {
-            
+            if (chevalier.isDetected && archer.isDetected && dragon.isDetected && AttackTarget.isDetected)
+            {
+                quete5Text.text = "Afficher";
+                quete5Text.color = Color.green;
+                PointManager.instance.AddScore(90);
+                return;
+            }
+            else
+            {
+                quete5Text.text = "Non Afficher";
+                quete5Text.color = Color.red;
+            }
+
         }
     }
     IEnumerator Attendre()

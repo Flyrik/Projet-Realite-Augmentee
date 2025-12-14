@@ -11,6 +11,8 @@ public class GreetingManager : MonoBehaviour
     public VuforiaObject AttackTarget;
     public static bool tempsstop = false;
 
+    public GameObject victoire;
+
     public List<Animator> animators; // liste de tous les persos
     public float greetDistance = 0.2f;
 
@@ -57,6 +59,8 @@ public class GreetingManager : MonoBehaviour
         {
             Attack();
             Debug.Log("GO");
+            StartCoroutine(Victory());
+            HealthManager.instance.TakeDamageDragon(300f);
         }
 
 
@@ -84,5 +88,10 @@ public class GreetingManager : MonoBehaviour
         // Lance l'attaque
         animators[0].SetTrigger("Attack");
         tempsstop = true;
+    }
+    IEnumerator Victory()
+    {
+        yield return new WaitForSeconds(5f);
+        victoire.SetActive(true);
     }
 }

@@ -8,6 +8,9 @@ public class HealthManager : MonoBehaviour
     public float maxHealth = 100f;
     public Image healthBar;
     public Image healthbararcher;
+    public Image dragonHealthBar;
+    public float dragonHealth = 300f;
+    public float dragonMaxHealth = 300f;
     public float health2 = 50f;
     public float maxHealth2 = 50f;
     public static HealthManager instance;
@@ -25,6 +28,7 @@ public class HealthManager : MonoBehaviour
     {
         healthBar.fillAmount = health / maxHealth;
         healthbararcher.fillAmount = health2 / maxHealth2;
+        dragonHealthBar.fillAmount = dragonHealth / dragonMaxHealth;
     }
     public void TakeDamage(float damage)
     {
@@ -34,6 +38,10 @@ public class HealthManager : MonoBehaviour
     public void TakeDamage2(float damage)
     {
         health2 -= damage;
+    }
+    public void TakeDamageDragon(float damage)
+    {
+        dragonHealth -= damage;
     }
     
 }
