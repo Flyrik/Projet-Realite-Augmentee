@@ -8,25 +8,24 @@ The goal is to complete all quests, reach 200 points, and defeat the dragon.
 
 🚀 How to Run the Project
 
-Open the project with Unity Hub
+1.Open the project with Unity Hub
 
-Make sure Vuforia Engine is enabled
+2.Make sure Vuforia Engine is enabled
 
-Add your Vuforia License Key
+3.Add your Vuforia License Key
 
-Build and run on a mobile device (Android recommended)
 
 🖼️ Image Targets Used
 
-Knight (Main character)
+- Knight (Main character)
 
-Archer
+- Archer
 
-Dragon
+- Dragon
 
-Buff Marker
+- Buff Marker
 
-Final Attack Marker
+- Final Attack Marker
 
 Each image target triggers a specific interaction or ability.
 
