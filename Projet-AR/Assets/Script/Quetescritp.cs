@@ -29,6 +29,9 @@ public class Quetescritp : MonoBehaviour
 
     private bool quete4Done = false;
 
+    private bool quete5Done = false;
+
+
     public GameObject QueteOBJ1;
     public GameObject QueteOBJ2;
     public GameObject QueteOBJ3;
@@ -126,13 +129,15 @@ public class Quetescritp : MonoBehaviour
             }
 
         }
-        if (quete1Done && quete2Done && quete3Done && quete4Done && DragonDetectionAnim.buttonShown==true)
+        if (quete1Done && quete2Done && quete3Done && quete4Done && DragonDetectionAnim.buttonShown==true  && !quete5Done)
         {
             if (chevalier.isDetected && archer.isDetected && dragon.isDetected && AttackTarget.isDetected)
             {
                 quete5Text.text = "Afficher";
                 quete5Text.color = Color.green;
                 PointManager.instance.AddScore(90);
+                recompense.Play();
+                 quete5Done = true;
                 return;
             }
             else

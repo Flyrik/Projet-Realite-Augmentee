@@ -22,7 +22,7 @@ public class DragonDetectionAnim : MonoBehaviour
     public AudioSource feudragon;
     public Animator chevalierAnimator;
     private bool hasTakenOff = false;
-    public GameObject boutton;
+    //public GameObject boutton;
     public static bool buttonShown = false;
     public GameObject Fin;
     private bool damageTaken = false;
@@ -32,7 +32,7 @@ public class DragonDetectionAnim : MonoBehaviour
     {
         buttonShown = false;
         hasTakenOff = false;
-        boutton.SetActive(false);
+        //boutton.SetActive(false);
         Fin.SetActive(false);
         damageTaken = false;
         myVFX.SetActive(false);
@@ -59,7 +59,7 @@ public class DragonDetectionAnim : MonoBehaviour
         {
 
              Timerscript.timerActive = true;
-           boutton.SetActive(true);
+           //boutton.SetActive(true);
             buttonShown = true; // empêche de le réactiver en boucle
         }
         //else if (!dragonTarget.isDetected)
@@ -104,7 +104,7 @@ public class DragonDetectionAnim : MonoBehaviour
 
         if (Timerscript.fintimer == true)
         {
-            boutton.SetActive(false);
+            //boutton.SetActive(false);
         }
         if (GreetingManager.attack == true)
         {

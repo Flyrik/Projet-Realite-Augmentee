@@ -91,7 +91,7 @@ public class GreetingManager : MonoBehaviour
     }
     IEnumerator Victory()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(2.5f);
         victoire.SetActive(true);
     }
 }
