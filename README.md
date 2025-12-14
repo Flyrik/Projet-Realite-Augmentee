@@ -31,31 +31,31 @@ Each image target triggers a specific interaction or ability.
 
 🎮 Gameplay Basics
 
-Scan image targets to spawn characters
+- Scan image targets to spawn characters
 
-Complete quests in the given order
+- Complete quests in the given order
 
-Bring markers close together to trigger interactions
+- Bring markers close together to trigger interactions
 
-Unlock buffs and special abilities
+- Unlock buffs and special abilities
 
-Use the final attack marker to defeat the dragon
+- Use the final attack marker to defeat the dragon
 
 ✨ Features
 
-Multi-marker interactions
+- Multi-marker interactions
 
-Animated 3D characters
+- Animated 3D characters
 
-Quest system with score progression
+- Quest system with score progression
 
-Health system
+- Health system
 
-Custom VFX (dragon fire)
+- Custom VFX (dragon fire)
 
-Contextual sound effects
+- Contextual sound effects
 
-Simple and intuitive UI
+- Simple and intuitive UI
 
 🧭 Immersion Tip
 
