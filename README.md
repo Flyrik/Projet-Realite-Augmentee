@@ -1,6 +1,6 @@
 🕶️ AR Multi-Marker Quest Game
 
-📌 Overview
+
 
 This project is an Augmented Reality game built with Unity and Vuforia.
 The experience is based on quests and multiple image targets that allow players to spawn and interact with animated 3D characters in AR.
